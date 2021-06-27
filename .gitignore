@@ -1,0 +1,13 @@
+
+.bloop/
+.metals/
+out/
+
+*.zip
+*~
+*.swp
+*.swo
+
+
+mill
+
