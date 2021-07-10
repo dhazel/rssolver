@@ -17,16 +17,16 @@ object XmlValidator {
     val validator: Validator = schema.newValidator()
     validator.setErrorHandler(new ErrorHandler() {
       @Override
-      def warning(exception:SAXParseException){
+      def warning(exception:SAXParseException): Unit = {
 
         exceptions = exception.getMessage  :: exceptions
       }
       @Override
-      def fatalError(exception:SAXParseException ) {
+      def fatalError(exception:SAXParseException ): Unit = {
         exceptions = exception.getMessage  :: exceptions
       }
       @Override
-      def error(exception:SAXParseException ) {
+      def error(exception:SAXParseException ): Unit = {
         exceptions = exception.getMessage  :: exceptions
       }
     });
