@@ -4,9 +4,12 @@ import mill._, scalalib._
 object app extends ScalaModule {
   def scalaVersion = "2.13.4"
 
+
   def ivyDeps = Agg(
     ivy"com.lihaoyi::cask:0.7.8",
+    ivy"org.jsoup:jsoup:1.13.1",
   )
+
   object test extends Tests{
     def testFrameworks = Seq("utest.runner.Framework")
 
