@@ -4,6 +4,10 @@ import mill._, scalalib._
 object app extends ScalaModule {
   def scalaVersion = "2.13.4"
 
+  def scalacOptions = Seq(
+      "-deprecation",
+      "-feature"
+  )
 
   def ivyDeps = Agg(
     ivy"com.lihaoyi::cask:0.7.8",
