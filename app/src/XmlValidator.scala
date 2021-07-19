@@ -4,15 +4,15 @@ import javax.xml.XMLConstants
 import javax.xml.transform.stream.StreamSource
 import javax.xml.validation.{Schema, SchemaFactory, Validator}
 import org.xml.sax.{ErrorHandler, SAXParseException}
+import java.net.URL
 
 object XmlValidator {
 
-  def validate(xmlFile:String, xsdFile:String): Boolean ={
+  def validate(xmlFile: URL, xsdFile: URL): Boolean ={
     var exceptions = List[String]()
 
     val schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI)
-    val url = getClass.getResource(xsdFile)
-    val schema: Schema = schemaFactory.newSchema(new StreamSource(url.openStream()))
+    val schema: Schema = schemaFactory.newSchema(new StreamSource(xsdFile.openStream()))
 
     val validator: Validator = schema.newValidator()
     validator.setErrorHandler(new ErrorHandler() {
@@ -31,8 +31,7 @@ object XmlValidator {
       }
     });
 
-    val xmlUrl = getClass.getResource(xmlFile)
-    validator.validate(new StreamSource(xmlUrl.openStream()))
+    validator.validate(new StreamSource(xmlFile.openStream()))
     exceptions.foreach(e=>{
       println(e)
     })

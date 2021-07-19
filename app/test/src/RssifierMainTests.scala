@@ -17,7 +17,7 @@ object ExampleTests extends TestSuite{
   }
 
   val tests = Tests {
-    test("MinimalApplication") - withServer(MinimalApplication) { host =>
+    test("RssifierMain") - withServer(RssifierMain) { host =>
       val success = requests.get(s"$host/hello")
 
       success.text() ==> "Hello World!"
@@ -25,7 +25,6 @@ object ExampleTests extends TestSuite{
 
       requests.get(s"$host/doesnt-exist", check = false).statusCode ==> 404
 
-      XmlValidator.validate("/testxml.xml", "/rss2schema.xsd") ==> true
     }
   }
 }
