@@ -2,9 +2,13 @@
 Rssifier Todo
 =============
 
+## effort 3
 
 ## effort 2
-- [ ] improve the rss2 xml to include the version attribute
+- [x] add readme
+- [x] add missing files from effort 1
+- [x] small cleanup
+- [x] improve the rss2 xsd to include the version attribute
 
 ## effort 1
 - [x] search scaladex for xml validation tools

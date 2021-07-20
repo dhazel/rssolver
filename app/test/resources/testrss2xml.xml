@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<rss version="2.0">-->
-<rss>
-	<channel>
+<rss version="2.0">
+    <channel>
         <title>Liftoff News</title>
         <link>http://liftoff.msfc.nasa.gov/</link>
         <description>Liftoff to Space Exploration.</description>
@@ -23,6 +22,6 @@
                 Before man travels to Mars, NASA hopes to design new engines that will let us fly through the Solar System more quickly. The proposed VASIMR engine would do that.
             </description>
         </item>
-	</channel>
+    </channel>
 </rss>
 

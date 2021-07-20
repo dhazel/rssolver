@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- A minimalist rss2 schema implementation, with only the features I need -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
-		   elementFormDefault="qualified">
-	<xs:element name="rss" type="rootType">
-	</xs:element>
+           elementFormDefault="qualified">
+    <xs:element name="rss" type="rootType">
+    </xs:element>
 
-	<xs:complexType name="rootType">
-        <!--<xs:attribute name="version" type="xs:int"/>-->
-		<xs:sequence>
-			<xs:element name="channel" type="channelType"/>
-		</xs:sequence>
-	</xs:complexType>
+    <xs:complexType name="rootType">
+        <xs:sequence>
+            <xs:element name="channel" type="channelType"/>
+        </xs:sequence>
+        <xs:attribute name="version">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="\d+\.\d+"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
 
-	<xs:complexType name="channelType">
-		<xs:sequence>
-			<xs:element type="xs:string" name="title"/>
-			<xs:element type="xs:string" name="link"/>
-			<xs:element type="xs:string" name="description"/>
-			<xs:element name="item" type="itemType" maxOccurs="unbounded" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
+    <xs:complexType name="channelType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="title"/>
+            <xs:element type="xs:string" name="link"/>
+            <xs:element type="xs:string" name="description"/>
+            <xs:element name="item" type="itemType" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
 
-	<xs:complexType name="itemType">
-		<xs:sequence>
-			<xs:element type="xs:string" name="title"/>
-			<xs:element type="xs:string" name="link"/>
-			<xs:element type="xs:string" name="description"/>
-		</xs:sequence>
-	</xs:complexType>
+    <xs:complexType name="itemType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="title"/>
+            <xs:element type="xs:string" name="link"/>
+            <xs:element type="xs:string" name="description"/>
+        </xs:sequence>
+    </xs:complexType>
 
 </xs:schema>

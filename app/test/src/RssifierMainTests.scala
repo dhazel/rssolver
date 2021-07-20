@@ -17,7 +17,7 @@ object ExampleTests extends TestSuite{
   }
 
   val tests = Tests {
-    test("RssifierMain") - withServer(RssifierMain) { host =>
+    test("Rssifier Hello") - withServer(RssifierMain) { host =>
       val success = requests.get(s"$host/hello")
 
       success.text() ==> "Hello World!"
