@@ -8,5 +8,10 @@ object RssifierMain extends cask.MainRoutes{
     "Hello World!"
   }
 
+  @cask.get("/rss/:source")
+  def rssSource(source: String) = {
+    s"rss source, $source, almost here"
+  }
+
   initialize()
 }

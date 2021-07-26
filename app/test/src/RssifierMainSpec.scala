@@ -21,6 +21,12 @@ class RssifierMainSpec extends AnyFlatSpec with Matchers with TestServer {
     }
   }
 
+  "/rss/testfile" should "return correctly" in {
+    usingServer(RssifierMain) { host =>
+      requests.get(s"$host/rss/testfile").statusCode shouldEqual 200
+    }
+  }
+
 }
 
 trait TestServer {

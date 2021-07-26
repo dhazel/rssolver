@@ -2,6 +2,9 @@
 Rssifier Todo
 =============
 
+## effort 4
+- [ ] create a route for rss sources
+
 ## effort 3
 - [x] switch to scalatest for the improved error messages
 
