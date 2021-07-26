@@ -15,11 +15,11 @@ object app extends ScalaModule {
   )
 
   object test extends Tests{
-    def testFrameworks = Seq("utest.runner.Framework")
-
     def ivyDeps = Agg(
-      ivy"com.lihaoyi::utest::0.7.5",
-      ivy"com.lihaoyi::requests::0.6.5",
-    )
+            //ivy"org.scalactic::scalactic:3.1.1",
+            ivy"org.scalatest::scalatest:3.2.8",
+            ivy"com.lihaoyi::requests::0.6.5",
+        )
+    def testFrameworks = Seq("org.scalatest.tools.Framework")
   }
 }

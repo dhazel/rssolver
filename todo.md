@@ -3,6 +3,7 @@ Rssifier Todo
 =============
 
 ## effort 3
+- [x] switch to scalatest for the improved error messages
 
 ## effort 2
 - [x] add readme
