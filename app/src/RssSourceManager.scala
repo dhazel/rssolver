@@ -11,11 +11,8 @@ object RssSourceManager {
 class RssSourceManager(configFile: URL) {
 
   val config = ujson.read(Source.fromURL(configFile).mkString)
-  val sources = config("sources").arr
-    .map { source => new RssSource(source("name").str) }
-    .foldLeft(Map[String,RssSource]()) { (acc, source) =>
-      acc + ( source.name -> source )
-    }
+  val sources = config("sources").obj
+    .map { case (key, source) => ( key -> new RssSource(key) ) }
 
   def getSource(name: String): Option[RssSource] = {
     return sources.get(name)

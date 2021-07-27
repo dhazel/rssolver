@@ -1,7 +1,5 @@
 {
-    "sources": [
-        {
-            "name": "simple"
-        }
-    ]
+    "sources": {
+        "simple": "simple"
+    }
 }
