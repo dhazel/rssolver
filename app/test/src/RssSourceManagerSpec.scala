@@ -9,7 +9,7 @@ import com.typesafe.config.{ConfigFactory, Config}
 class RssSourceManagerSpec extends AnyFlatSpec
 with Matchers with OptionValues with ConfigAble {
 
-  "RssSourceManager" should "receive a config file" in {
+  "RssSourceManager" should "receive a config" in {
     val manager = new RssSourceManager(getConfig())
   }
 
