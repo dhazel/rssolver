@@ -13,6 +13,7 @@ object app extends ScalaModule {
     ivy"com.lihaoyi::cask:0.7.8",
     ivy"org.jsoup:jsoup:1.13.1",
     ivy"com.lihaoyi::upickle:1.4.0",
+    ivy"com.typesafe:config:1.4.1",
   )
 
   object test extends Tests{
