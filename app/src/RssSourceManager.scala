@@ -4,6 +4,7 @@ import java.net.URL
 import scala.io.Source
 import com.typesafe.config.Config
 import scala.jdk.CollectionConverters._
+import java.util.HashMap
 
 object RssSourceManager {
 
@@ -13,12 +14,14 @@ class RssSourceManager(config: Config) {
 
   val sources = config.getObject("sources").asScala
     .map { case (key, source) => {
-        var itemConf = source.asInstanceOf[Config]
+        var itemConf = source.unwrapped()
+                        .asInstanceOf[HashMap[String,String]]
+                        .asScala
         ( key -> new RssSource(
             name = key,
-            //title = itemConf.getString("title"),
-            //description = itemConf.getString("description"),
-            //url = new URL(itemConf.getString("url"))
+            title = itemConf("title"),
+            description = itemConf("description"),
+            url = new URL(itemConf("url"))
           )
         )
       }
