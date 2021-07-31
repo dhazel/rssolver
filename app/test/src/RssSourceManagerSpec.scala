@@ -7,6 +7,7 @@ import org.scalatest.OptionValues
 import com.typesafe.config.{ConfigFactory, Config}
 import org.scalatest.matchers.BePropertyMatcher
 import org.scalatest.matchers.BePropertyMatchResult
+import scala.xml.XML
 
 class RssSourceManagerSpec extends AnyFlatSpec
 with Matchers with OptionValues with ConfigAble {
@@ -32,6 +33,15 @@ with Matchers with OptionValues with ConfigAble {
     val manager = new RssSourceManager(getConfig())
 
     manager.getSource("simple").value.getRss() should be(rss2)
+  }
+
+  it should "contain the correct rss items" in {
+    val manager = new RssSourceManager(getConfig())
+    val rss = XML.loadString(manager.getSource("simple").value.getRss())
+
+    (rss \ "channel" \ "title").text should equal("Simple Source")
+    (rss \ "channel" \ "link").text should equal("file://test_simple_source.html")
+    (rss \ "channel" \ "description").text should equal("A simple RSS2 source for testing")
   }
 
 }
