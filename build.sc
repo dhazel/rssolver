@@ -14,6 +14,7 @@ object app extends ScalaModule {
     ivy"org.jsoup:jsoup:1.13.1",
     ivy"com.lihaoyi::upickle:1.4.0",
     ivy"com.typesafe:config:1.4.1",
+    //ivy"org.scala-lang.modules::scala-xml:2.0.1", // causes errors in the Config types
   )
 
   object test extends Tests{

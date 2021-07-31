@@ -10,5 +10,16 @@ object RssSource {
 
 }
 
-case class RssSource(name: String) {
+case class RssSource(
+  name: String,
+  //title: String,
+  //description: String,
+  //url: URL
+) {
+  def getRss(): String = {
+    return "<rss></rss>"
+    //val rssXml = <rss version="2.0"></rss>
+
+    //return rssXml.toString()
+  }
 }

@@ -5,6 +5,8 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.OptionValues
 import com.typesafe.config.{ConfigFactory, Config}
+import org.scalatest.matchers.BePropertyMatcher
+import org.scalatest.matchers.BePropertyMatchResult
 
 class RssSourceManagerSpec extends AnyFlatSpec
 with Matchers with OptionValues with ConfigAble {
@@ -26,17 +28,22 @@ with Matchers with OptionValues with ConfigAble {
     manager.getSource("simple").value shouldBe a [RssSource]
   }
 
-  it should "transform a source to rss2" in {
+  it should "transform a valid source to rss2" in {
     val manager = new RssSourceManager(getConfig())
 
-    manager.getSource("simple").value shouldBe a [RssSource]
+    manager.getSource("simple").value.getRss() should be(rss2)
   }
 
 }
 
 trait ConfigAble {
   def getConfig(): Config = {
-    val conf = ConfigFactory.load()
-    return conf
+    return ConfigFactory.load()
   }
+}
+
+object rss2 extends BePropertyMatcher[String] {
+  def apply(left : String) = BePropertyMatchResult(
+    XmlValidator.validate(left, getClass.getResource("/rss2schema.xsd")),
+    "valid rss2")
 }
