@@ -43,6 +43,9 @@ with Matchers with OptionValues with ConfigAble {
     (rss \ "channel" \ "link").text should equal("file:///test_simple_source.html")
     (rss \ "channel" \ "description").text should equal("A simple RSS2 source for testing")
     (rss \ "channel" \ "item").length should equal(4)
+    (rss \ "channel" \ "item" \ "title")(0).text should equal("2005 Honda Civic EX")
+
+
   }
 
 }

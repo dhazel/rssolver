@@ -20,7 +20,8 @@ case class RssSource(
   title: String,
   description: String,
   url: String,
-  itemContainer: String
+  itemContainer: String,
+  itemTitle: String
 ) {
 
   def getDocument(): Document = {
@@ -50,7 +51,7 @@ case class RssSource(
           <description>{description}</description>
           {for (container <- containers) yield
             <item>
-              <title>mytitle</title>
+              <title>{Xsoup.compile(itemTitle).evaluate(Jsoup.parse(container))}</title>
               <link>mylink</link>
               <description>mydescription</description>
             </item>
