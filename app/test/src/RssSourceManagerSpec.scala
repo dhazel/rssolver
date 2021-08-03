@@ -40,8 +40,9 @@ with Matchers with OptionValues with ConfigAble {
     val rss = XML.loadString(manager.getSource("simple").value.getRss())
 
     (rss \ "channel" \ "title").text should equal("Simple Source")
-    (rss \ "channel" \ "link").text should equal("file://test_simple_source.html")
+    (rss \ "channel" \ "link").text should equal("file:///test_simple_source.html")
     (rss \ "channel" \ "description").text should equal("A simple RSS2 source for testing")
+    (rss \ "channel" \ "item").length should equal(4)
   }
 
 }

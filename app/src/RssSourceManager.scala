@@ -21,7 +21,8 @@ class RssSourceManager(config: Config) {
             name = key,
             title = itemConf("title"),
             description = itemConf("description"),
-            url = new URL(itemConf("url"))
+            url = itemConf("url"),
+            itemContainer = itemConf("itemContainer")
           )
         )
       }

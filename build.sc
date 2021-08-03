@@ -11,7 +11,8 @@ object app extends ScalaModule {
 
   def ivyDeps = Agg(
     ivy"com.lihaoyi::cask:0.7.8",
-    ivy"org.jsoup:jsoup:1.13.1",
+    ivy"org.jsoup:jsoup:1.14.1",
+    ivy"us.codecraft:xsoup:0.3.2",
     ivy"com.lihaoyi::upickle:1.4.0",
     ivy"com.typesafe:config:1.4.1",
     ivy"org.scala-lang.modules::scala-xml:2.0.1",
