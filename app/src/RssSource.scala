@@ -22,7 +22,8 @@ case class RssSource(
   url: String,
   itemContainer: String,
   itemTitle: String,
-  itemLink: String
+  itemLink: String,
+  itemDescription: String
 ) {
 
   def getDocument(): Document = {
@@ -52,11 +53,12 @@ case class RssSource(
           <description>{description}</description>
           {for (parse <- containers.map(c =>
                   (exp: String) => Xsoup.compile(exp).evaluate(Jsoup.parse(c))
+                                    .list().asScala.toList
                 )) yield
             <item>
               <title>{parse(itemTitle)}</title>
               <link>{parse(itemLink)}</link>
-              <description>mydescription</description>
+              <description>{parse(itemDescription)}</description>
             </item>
           }
         </channel>

@@ -54,10 +54,10 @@ with Matchers with OptionValues with ConfigAble {
     (rss \ "channel" \ "item" \ "link")(2).text should equal("https://test.example.org/2004-honda-civic-ex-manual-coupe/test3.html")
     (rss \ "channel" \ "item" \ "link")(3).text should equal("https://test.example.org/2009-honda-civic/test4.html")
 
-    //(rss \ "channel" \ "item" \ "description")(0).text should equal("https://test.example.org/2005-honda-civic-ex/test1.html")
-    //(rss \ "channel" \ "item" \ "description")(1).text should equal("https://test.example.org/2009-honda-civic-lx/test2.html")
-    //(rss \ "channel" \ "item" \ "description")(2).text should equal("https://test.example.org/2004-honda-civic-ex-manual-coupe/test3.html")
-    //(rss \ "channel" \ "item" \ "description")(3).text should equal("https://test.example.org/2009-honda-civic/test4.html")
+    (rss \ "channel" \ "item" \ "description")(0).text should fullyMatch regex """\$2,800 +\(neighborhood1\) +3\.1mi"""
+    (rss \ "channel" \ "item" \ "description")(1).text should fullyMatch regex """\$7,000 +\(neighborhood2\) +5\.5mi"""
+    (rss \ "channel" \ "item" \ "description")(2).text should fullyMatch regex """\$2,900 +\(neighborhood2\) +5\.6mi"""
+    (rss \ "channel" \ "item" \ "description")(3).text should fullyMatch regex """\$3,500 +5\.9mi"""
 
   }
 
