@@ -36,7 +36,7 @@ case class RssSource(
         .toURI()), null)
     }
     else {
-      new Document("http://example.org")
+      throw new NotImplementedError()
     }
   }
 
