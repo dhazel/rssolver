@@ -43,8 +43,21 @@ with Matchers with OptionValues with ConfigAble {
     (rss \ "channel" \ "link").text should equal("file:///test_simple_source.html")
     (rss \ "channel" \ "description").text should equal("A simple RSS2 source for testing")
     (rss \ "channel" \ "item").length should equal(4)
-    (rss \ "channel" \ "item" \ "title")(0).text should equal("2005 Honda Civic EX")
 
+    (rss \ "channel" \ "item" \ "title")(0).text should equal("2005 Honda Civic EX")
+    (rss \ "channel" \ "item" \ "title")(1).text should equal("2009 Honda Civic LX")
+    (rss \ "channel" \ "item" \ "title")(2).text should equal("2004 Honda Civic Ex Manual Coupe")
+    (rss \ "channel" \ "item" \ "title")(3).text should equal("2009 Honda civic")
+
+    (rss \ "channel" \ "item" \ "link")(0).text should equal("https://test.example.org/2005-honda-civic-ex/test1.html")
+    (rss \ "channel" \ "item" \ "link")(1).text should equal("https://test.example.org/2009-honda-civic-lx/test2.html")
+    (rss \ "channel" \ "item" \ "link")(2).text should equal("https://test.example.org/2004-honda-civic-ex-manual-coupe/test3.html")
+    (rss \ "channel" \ "item" \ "link")(3).text should equal("https://test.example.org/2009-honda-civic/test4.html")
+
+    //(rss \ "channel" \ "item" \ "description")(0).text should equal("https://test.example.org/2005-honda-civic-ex/test1.html")
+    //(rss \ "channel" \ "item" \ "description")(1).text should equal("https://test.example.org/2009-honda-civic-lx/test2.html")
+    //(rss \ "channel" \ "item" \ "description")(2).text should equal("https://test.example.org/2004-honda-civic-ex-manual-coupe/test3.html")
+    //(rss \ "channel" \ "item" \ "description")(3).text should equal("https://test.example.org/2009-honda-civic/test4.html")
 
   }
 
