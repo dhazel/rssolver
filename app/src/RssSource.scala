@@ -32,8 +32,8 @@ case class RssSource(
     return if ( urlObj.getProtocol() == "file" ) {
       Jsoup.parse(new File(
         getClass.getResource(
-          s"${urlObj.getPath()}")
-        .toURI()), null)
+          s"${urlObj.getPath()}"
+        ).toURI()), null)
     }
     else {
       throw new NotImplementedError()
