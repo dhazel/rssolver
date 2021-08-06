@@ -4,8 +4,6 @@ Rssolver
 
 Turn any website into an RSS feed.
 
-Work in progress. This is not yet a minimum viable product.
-
 ## Contents
 
 * [What is Rssolver?](#what-is-rssifier?)
