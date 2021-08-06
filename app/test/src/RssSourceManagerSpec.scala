@@ -58,7 +58,13 @@ with Matchers with OptionValues with ConfigAble {
     (rss \ "channel" \ "item" \ "description")(1).text should fullyMatch regex """\$7,000 +\(neighborhood2\) +5\.5mi"""
     (rss \ "channel" \ "item" \ "description")(2).text should fullyMatch regex """\$2,900 +\(neighborhood2\) +5\.6mi"""
     (rss \ "channel" \ "item" \ "description")(3).text should fullyMatch regex """\$3,500 +5\.9mi"""
+  }
 
+  it should "pull sources from the internet" in {
+    val manager = new RssSourceManager(getConfig())
+    //val rss = XML.loadString(manager.getSource("exampleorg").value.getRss())
+
+    manager.getSource("exampleorg").value.getRss() should be(rss2)
   }
 
 }

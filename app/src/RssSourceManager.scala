@@ -5,6 +5,7 @@ import scala.io.Source
 import com.typesafe.config.Config
 import scala.jdk.CollectionConverters._
 import java.util.HashMap
+import scala.util.control.Exception.allCatch
 
 object RssSourceManager {
 
@@ -22,6 +23,7 @@ class RssSourceManager(config: Config) {
             title = itemConf("title"),
             description = itemConf("description"),
             url = itemConf("url"),
+            userAgent = allCatch.opt(itemConf("userAgent")),
             itemContainer = itemConf("itemContainer"),
             itemTitle = itemConf("itemTitle"),
             itemLink = itemConf("itemLink"),

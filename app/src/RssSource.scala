@@ -20,6 +20,7 @@ case class RssSource(
   title: String,
   description: String,
   url: String,
+  userAgent: Option[String],
   itemContainer: String,
   itemTitle: String,
   itemLink: String,
@@ -36,7 +37,10 @@ case class RssSource(
         ).toURI()), null)
     }
     else {
-      throw new NotImplementedError()
+      userAgent match {
+        case None => Jsoup.connect(url).get()
+        case Some(value) => Jsoup.connect(url).userAgent(value).get()
+      }
     }
   }
 
