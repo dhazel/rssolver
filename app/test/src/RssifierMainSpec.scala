@@ -21,9 +21,15 @@ class RssifierMainSpec extends AnyFlatSpec with Matchers with TestServer {
     }
   }
 
-  "/rss/testfile" should "return correctly" in {
+  "/rss/simple" should "return correctly" in {
     usingServer(RssifierMain) { host =>
-      requests.get(s"$host/rss/testfile").statusCode shouldEqual 200
+      requests.get(s"$host/rss/simple").statusCode shouldEqual 200
+    }
+  }
+
+  "/rss/doesnt-exist" should "return 404" in {
+    usingServer(RssifierMain) { host =>
+      requests.get(s"$host/rss/doesnt-exist", check = false).statusCode shouldEqual 404
     }
   }
 

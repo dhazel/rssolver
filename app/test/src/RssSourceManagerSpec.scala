@@ -69,12 +69,6 @@ with Matchers with OptionValues with ConfigAble {
 
 }
 
-trait ConfigAble {
-  def getConfig(): Config = {
-    return ConfigFactory.load()
-  }
-}
-
 object rss2 extends BePropertyMatcher[String] {
   def apply(left : String) = BePropertyMatchResult(
     XmlValidator.validate(left, getClass.getResource("/rss2schema.xsd")),
