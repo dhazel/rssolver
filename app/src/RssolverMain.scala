@@ -2,7 +2,7 @@ package app
 
 import org.jsoup._
 
-object RssifierMain extends cask.MainRoutes with ConfigAble {
+object RssolverMain extends cask.MainRoutes with ConfigAble {
   @cask.get("/hello")
   def hello() = {
     "Hello World!"

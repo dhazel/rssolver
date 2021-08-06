@@ -4,10 +4,10 @@ import io.undertow.Undertow
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
-class RssifierMainSpec extends AnyFlatSpec with Matchers with TestServer {
+class RssolverMainSpec extends AnyFlatSpec with Matchers with TestServer {
 
   "/hello" should "return successfully" in {
-    usingServer(RssifierMain) { host =>
+    usingServer(RssolverMain) { host =>
       val success = requests.get(s"$host/hello")
 
       success.text() shouldEqual "Hello World!"
@@ -16,19 +16,19 @@ class RssifierMainSpec extends AnyFlatSpec with Matchers with TestServer {
   }
 
   "/doesnt-exist" should "return 404" in {
-    usingServer(RssifierMain) { host =>
+    usingServer(RssolverMain) { host =>
       requests.get(s"$host/doesnt-exist", check = false).statusCode shouldEqual 404
     }
   }
 
   "/rss/simple" should "return correctly" in {
-    usingServer(RssifierMain) { host =>
+    usingServer(RssolverMain) { host =>
       requests.get(s"$host/rss/simple").statusCode shouldEqual 200
     }
   }
 
   "/rss/doesnt-exist" should "return 404" in {
-    usingServer(RssifierMain) { host =>
+    usingServer(RssolverMain) { host =>
       requests.get(s"$host/rss/doesnt-exist", check = false).statusCode shouldEqual 404
     }
   }

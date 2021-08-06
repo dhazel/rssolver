@@ -1,9 +1,16 @@
 
-Rssifier Todo
+Rssolver Todo
 =============
 
+## effort 5
+- [ ] debugging tools for config rules
+- [ ] configuration section in the readme
+
 ## effort 4
-- [ ] create a route for rss sources
+- [x] create a route for rss sources
+- [x] parsing rss sources
+    - [x] file source
+    - [x] internet url source
 
 ## effort 3
 - [x] switch to scalatest for the improved error messages

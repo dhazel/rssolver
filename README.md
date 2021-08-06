@@ -1,5 +1,5 @@
 
-Rssifier
+Rssolver
 ========
 
 Turn any website into an RSS feed.
@@ -8,7 +8,7 @@ Work in progress. This is not yet a minimum viable product.
 
 ## Contents
 
-* [What is Rssifier?](#what-is-rssifier?)
+* [What is Rssolver?](#what-is-rssifier?)
 * [Why RSS?](#why-rss?)
 * [Installation](#installation)
 * [Configuration](#configuration)
@@ -17,9 +17,9 @@ Work in progress. This is not yet a minimum viable product.
 * [Motivations](#motivations)
 
 
-## What is Rssifier?
+## What is Rssolver?
 
-Rssifier is a simple web scraper that, given a few configuration parameters,
+Rssolver is a simple web scraper that, given a few configuration parameters,
 will pull data from any website, reformat that data into an RSS2 feed, and
 then serve that data to the feed reader of your choice.
 
@@ -37,7 +37,7 @@ spot flippers, etc.
 
 Java is required. You must have a JVM installed.
 
-This is currently technical and aimed at developers. To get Rssifier, you must
+This is currently technical and aimed at developers. To get Rssolver, you must
 download or clone this repository.
 
 ## Usage
@@ -73,7 +73,7 @@ TBD
 
 ## Motivations
 
-1. A website whose RSS feeds I used to rely on stopped supporting RSS. Rssifier
+1. A website whose RSS feeds I used to rely on stopped supporting RSS. Rssolver
 enables me to continue using RSS with this website or any other website I choose.
 2. My Scala skills had grown rusty. I wanted a project to re-sharpen those
 skills and explore the current Scala ecosystem.
