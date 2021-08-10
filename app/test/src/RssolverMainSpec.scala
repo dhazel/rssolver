@@ -33,6 +33,14 @@ class RssolverMainSpec extends AnyFlatSpec with Matchers with TestServer {
     }
   }
 
+  "RssolverMain" should "set host by config file" in {
+    RssolverMain.host should equal("testhost")
+  }
+
+  it should "set port by config file" in {
+    RssolverMain.port should equal(8085)
+  }
+
 }
 
 trait TestServer {

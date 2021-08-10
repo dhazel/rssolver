@@ -1,8 +1,13 @@
 package app
 
 import org.jsoup._
+import scala.util.control.Exception.allCatch
 
 object RssolverMain extends cask.MainRoutes with ConfigAble {
+
+  override def host: String = getConfig().getString("host")
+  override def port: Int = getConfig().getInt("port")
+
   @cask.get("/hello")
   def hello() = {
     "Hello World!"

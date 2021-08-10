@@ -2,9 +2,12 @@
 Rssolver Todo
 =============
 
-## effort 5
-- [ ] debugging tools for config rules
+## effort 6
+- [ ] debugging tools for config rules?
 - [ ] configuration section in the readme
+
+## effort 5
+- [x] add a default config file with comments
 
 ## effort 4
 - [x] create a route for rss sources
