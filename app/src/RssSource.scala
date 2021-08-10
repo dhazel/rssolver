@@ -63,6 +63,7 @@ case class RssSource(
             <item>
               <title>{parse(itemTitle)}</title>
               <link>{parse(itemLink)}</link>
+              <guid>{parse(itemLink)}</guid>
               <description>{parse(itemDescription)}</description>
             </item>
           }

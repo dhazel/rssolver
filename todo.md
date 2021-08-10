@@ -7,7 +7,7 @@ Rssolver Todo
 - [ ] configuration section in the readme
 
 ## effort 6
-- [ ] add a `guid` node to the rss
+- [x] add a `guid` node to the rss
 - [x] add the ability to have complex rss contents, including html
 
 ## effort 5

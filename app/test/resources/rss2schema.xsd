@@ -31,6 +31,7 @@
         <xs:sequence>
             <xs:element type="xs:string" name="title"/>
             <xs:element type="xs:string" name="link"/>
+            <xs:element type="xs:string" name="guid"/>
             <xs:element type="xs:string" name="description"/>
         </xs:sequence>
     </xs:complexType>
