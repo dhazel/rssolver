@@ -56,9 +56,8 @@ case class RssSource(
           <link>{url}</link>
           <description>{description}</description>
           {for (parse <- containers.map(c =>
-                  (exp: String) => xml.Utility.escape(
-                    Xsoup.compile(exp).evaluate(Jsoup.parse(c))
-                                    .list().asScala.toList.mkString(" "))
+                  (exp: String) => Xsoup.compile(exp).evaluate(Jsoup.parse(c))
+                                    .list().asScala.toList.mkString(" ")
                 )) yield
             <item>
               <title>{parse(itemTitle)}</title>
