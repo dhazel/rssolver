@@ -2,9 +2,13 @@
 Rssolver Todo
 =============
 
-## effort 6
+## future
 - [ ] debugging tools for config rules?
 - [ ] configuration section in the readme
+
+## effort 6
+- [ ] add a `guid` node to the rss
+- [x] add the ability to have complex rss contents, including html
 
 ## effort 5
 - [x] add a default config file with comments
