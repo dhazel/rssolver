@@ -10,22 +10,25 @@ import org.jsoup.Jsoup
 import java.io.File
 import org.jsoup.nodes.Document
 import us.codecraft.xsoup.Xsoup
+import scala.util.control.Exception.allCatch
 
 object RssSource {
 
 }
 
-case class RssSource(
+class RssSource(
   name: String,
-  title: String,
-  description: String,
-  url: String,
-  userAgent: Option[String],
-  itemContainer: String,
-  itemTitle: String,
-  itemLink: String,
-  itemDescription: String
+  config: scala.collection.mutable.Map[String, String],
 ) {
+
+  val title = config("title")
+  val description = config("description")
+  val url = config("url")
+  val userAgent = allCatch.opt(config("userAgent"))
+  val itemContainer = config("itemContainer")
+  val itemTitle = config("itemTitle")
+  val itemLink = config("itemLink")
+  val itemDescription = config("itemDescription")
 
   def getDocument(): Document = {
     val urlObj = new URL(url)
